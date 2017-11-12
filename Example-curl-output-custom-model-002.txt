@@ -1,0 +1,172 @@
+{
+  "relations": [
+    {
+      "type": "impactPoint",
+      "sentence": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer",
+      "score": 0.889433,
+      "arguments": [
+        {
+          "text": "rotated out",
+          "entities": [
+            {
+              "type": "IMPACT",
+              "text": "rotated out"
+            }
+          ]
+        },
+        {
+          "text": "vehicle",
+          "entities": [
+            {
+              "type": "VEHICLE",
+              "text": "vehicle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "impactPoint",
+      "sentence": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer",
+      "score": 0.562738,
+      "arguments": [
+        {
+          "text": "wall impact",
+          "entities": [
+            {
+              "type": "IMPACT",
+              "text": "wall impact"
+            }
+          ]
+        },
+        {
+          "text": "vehicle",
+          "entities": [
+            {
+              "type": "VEHICLE",
+              "text": "vehicle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "impactPoint",
+      "sentence": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer",
+      "score": 0.808518,
+      "arguments": [
+        {
+          "text": "struck",
+          "entities": [
+            {
+              "type": "IMPACT",
+              "text": "struck"
+            }
+          ]
+        },
+        {
+          "text": "Qin",
+          "entities": [
+            {
+              "type": "MODEL",
+              "text": "Qin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "hasProperty",
+      "sentence": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer",
+      "score": 0.953107,
+      "arguments": [
+        {
+          "text": "Qin",
+          "entities": [
+            {
+              "type": "MODEL",
+              "text": "Qin"
+            }
+          ]
+        },
+        {
+          "text": "2013",
+          "entities": [
+            {
+              "type": "MODEL_YEAR",
+              "text": "2013"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "hasProperty",
+      "sentence": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer",
+      "score": 0.99409,
+      "arguments": [
+        {
+          "text": "Qin",
+          "entities": [
+            {
+              "type": "MODEL",
+              "text": "Qin"
+            }
+          ]
+        },
+        {
+          "text": "BYD",
+          "entities": [
+            {
+              "type": "MANUFACTURER",
+              "text": "BYD"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "type": "MANUFACTURER",
+      "text": "BYD",
+      "count": 1
+    },
+    {
+      "type": "MODEL",
+      "text": "Qin",
+      "count": 1
+    },
+    {
+      "type": "VEHICLE",
+      "text": "vehicle",
+      "count": 1
+    },
+    {
+      "type": "IMPACT",
+      "text": "wall impact",
+      "count": 1
+    },
+    {
+      "type": "VEHICLE",
+      "text": "trailer",
+      "count": 1
+    },
+    {
+      "type": "IMPACT",
+      "text": "rotated out",
+      "count": 1
+    },
+    {
+      "type": "IMPACT",
+      "text": "struck",
+      "count": 1
+    },
+    {
+      "type": "MODEL_YEAR",
+      "text": "2013",
+      "count": 1
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,11 @@
+{
+  "features": {
+    "entities": {
+      "model": "en-us-tir"
+    },
+    "relations": {
+      "model": "en-us-tir"
+    }
+  },
+  "text": "The vehicle rotated out from the initial wall impact and was subsequently struck by a 2013 BYD Qin pulling a single trailer"
+}
