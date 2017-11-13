@@ -24,15 +24,19 @@ var mic_instance = mic({
 
 var mic_input_stream = mic_instance.getAudioStream();
 
-mic_input_stream.on('startComplete', function(event) { onEvent('Start Complete:', event); });
-mic_input_stream.on('stopComplete', function(event) { onEvent('Stop Complete:', event); });
-mic_input_stream.on('pauseComplete', function(event) { onEvent('Pause Complete:', event); });
-mic_input_stream.on('resumeComplete', function(event) { onEvent('Resume Complete:', event); });
-mic_input_stream.on('data', function(event) { onEvent('Data:', event); });
-mic_input_stream.on('error', function(event) { onEvent('Error:', event); });
-mic_input_stream.on('silence', function(event) { onEvent('Silence:', event); });
-mic_input_stream.on('processExitComplete', function(event) { onEvent('Process Exit Complete:', event); });
+mic_input_stream.on('startComplete', function(event) { onMISEvent('Start Complete:', event); });
+mic_input_stream.on('stopComplete', function(event) { onMISEvent('Stop Complete:', event); });
+mic_input_stream.on('pauseComplete', function(event) { onMISEvent('Pause Complete:', event); });
+mic_input_stream.on('resumeComplete', function(event) { onMISEvent('Resume Complete:', event); });
+mic_input_stream.on('data', function(event) { onMISEvent('Data:', event); });
+mic_input_stream.on('error', function(event) { onMISEvent('Error:', event); });
+mic_input_stream.on('silence', function(event) { onMISEvent('Silence:', event); });
+mic_input_stream.on('processExitComplete', function(event) { onMISEvent('Process Exit Complete:', event); });
 
+// Displays events on the console.
+function onMISEvent(name, event) {
+  console.log(name);
+};
 
 var params = {
   model: 'en-US_BroadbandModel',
@@ -54,14 +58,14 @@ mic_input_stream.pipe(recognizeStream);
 recognizeStream.pipe(fs.createWriteStream('transcription.txt'));
 recognizeStream.setEncoding('utf8');
 
-recognizeStream.on('results', function(event) { onEvent('Results:', event); });
-recognizeStream.on('data', function(event) { onEvent('Data:', event); });
-recognizeStream.on('error', function(event) { onEvent('Error:', event); });
-recognizeStream.on('close', function(event) { onEvent('Close:', event); });
-recognizeStream.on('speaker_labels', function(event) { onEvent('Speaker_Labels:', event); });
+recognizeStream.on('results', function(event) { onRSEvent('Results:', event); });
+recognizeStream.on('data', function(event) { onRSEvent('Data:', event); });
+recognizeStream.on('error', function(event) { onRSEvent('Error:', event); });
+recognizeStream.on('close', function(event) { onRSEvent('Close:', event); });
+recognizeStream.on('speaker_labels', function(event) { onRSEvent('Speaker_Labels:', event); });
 
 // Displays events on the console.
-function onEvent(name, event) {
+function onRSEvent(name, event) {
   console.log(name, event);
 };
 
