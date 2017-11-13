@@ -1,7 +1,6 @@
 var SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
 var fs = require('fs');
-// var getUserMedia = require('get-user-media-promise');
-// var MicrophoneStream = require('microphone-stream');
+var mic = require('mic');
 
 
 var speech_to_text = new SpeechToTextV1 ({
@@ -16,13 +15,23 @@ speech_to_text.getModels(null, function(error, models) {
   }
 });
 
-// var micStream = new MicrophoneStream();
-// getUserMedia({ video: false, audio: true }).then(function(stream) {
-//   micStream.setStream(stream);
-// }).catch(function(error) {
-//   console.log(error);
-// });
+var mic_instance = mic({
+  rate: '16000',
+    channels: '1',
+    debug: true,
+    exitOnSilence: 6
+});
 
+var mic_input_stream = mic_instance.getAudioStream();
+
+mic_input_stream.on('startComplete', function(event) { onEvent('Start Complete:', event); });
+mic_input_stream.on('stopComplete', function(event) { onEvent('Stop Complete:', event); });
+mic_input_stream.on('pauseComplete', function(event) { onEvent('Pause Complete:', event); });
+mic_input_stream.on('resumeComplete', function(event) { onEvent('Resume Complete:', event); });
+mic_input_stream.on('data', function(event) { onEvent('Data:', event); });
+mic_input_stream.on('error', function(event) { onEvent('Error:', event); });
+mic_input_stream.on('silence', function(event) { onEvent('Silence:', event); });
+mic_input_stream.on('processExitComplete', function(event) { onEvent('Process Exit Complete:', event); });
 
 
 var params = {
@@ -39,8 +48,8 @@ var params = {
 
 var recognizeStream = speech_to_text.createRecognizeStream(params);
 
-// micStream.pipe(recognizeStream);
-fs.createReadStream('audio-file.flac').pipe(recognizeStream);
+mic_input_stream.pipe(recognizeStream);
+//fs.createReadStream('audio-file.flac').pipe(recognizeStream);
 
 recognizeStream.pipe(fs.createWriteStream('transcription.txt'));
 recognizeStream.setEncoding('utf8');
@@ -56,4 +65,7 @@ function onEvent(name, event) {
   console.log(name, event);
 };
 
-// setTimeout(function() {}, 4000);
+mic_instance.start();
+setTimeout(function() {
+  mic_instance.stop();
+}, 4000);
