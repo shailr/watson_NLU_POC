@@ -1,0 +1,20 @@
+{
+  "name": "poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "speech2text_test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/hcifall17uicgroup7/poc.git"
+  },
+  "author": "HCI Fall 2017 Group 7",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/hcifall17uicgroup7/poc#readme",
+  "dependencies": {
+    "mic": "^2.1.2",
+    "watson-developer-cloud": "^2.42.0"
+  }
+}
